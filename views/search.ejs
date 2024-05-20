@@ -1,0 +1,56 @@
+<%- include('header'); -%>
+
+    <header>
+        <div class="container-fluid bg-info-subtle mb-4">
+            <div class="col-sm-8 mx-auto text-center py-2">
+                <h1 class="display-4">World of Ice Cream</h1>
+                <p class="lead ">Search Results</p>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <h3>
+                <%= title %>
+            </h3>
+
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Ice Cream Type</th>
+                        <th>Rating</th>
+                        <th>Feedback</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% feedbackList.forEach(feedback=> { %>
+                        <tr>
+                            <td>
+                                <%= feedback.Id%>
+                            </td>
+                            <td>
+                                <%= feedback.name %>
+                            </td>
+                            <td>
+                                <%= feedback.icecreamtype %>
+                            </td>
+                            <td>
+                                <% for (let i=0; i < feedback.rating; i++) { %>
+                                    &#9733;
+                                    <% } %>
+                            </td>
+                            <td>
+                                <%= feedback.feedback %>
+                            </td>
+                        </tr>
+                        <% }) %>
+                </tbody>
+            </table>
+            <div class="text-danger"> <%= message %> </div>
+        </div>
+    </main>
+
+    <%- include('footer'); -%>
